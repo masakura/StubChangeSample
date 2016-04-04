@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
@@ -18,14 +19,7 @@ namespace GitHubApp
         {
             object repositories;
 
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("User-Agent", "My App");
-                var response = await client.GetAsync("https://api.github.com/repositories");
-
-                var text = await response.Content.ReadAsStringAsync();
-                repositories = JsonConvert.DeserializeObject(text);
-            }
+            repositories = await GetGitHubRepositories();
 
             /*
                 var repositories = new[]
@@ -38,6 +32,20 @@ namespace GitHubApp
             */
 
             repositoriesDataGrid.DataSource = repositories;
+        }
+
+        private static async Task<object> GetGitHubRepositories()
+        {
+            object repositories;
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("User-Agent", "My App");
+                var response = await client.GetAsync("https://api.github.com/repositories");
+
+                var text = await response.Content.ReadAsStringAsync();
+                repositories = JsonConvert.DeserializeObject(text);
+            }
+            return repositories;
         }
     }
 }
