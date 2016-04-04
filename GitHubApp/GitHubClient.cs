@@ -7,7 +7,6 @@ namespace GitHubApp
     public class GitHubClient
     {
         public static GitHubClient Current { get; set; } = new GitHubClient();
-        // public static GitHubClient Current { get; set; } = new GitHubClientStub();
 
         public virtual async Task<object> GetGitHubRepositories()
         {

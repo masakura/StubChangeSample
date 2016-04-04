@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace GitHubApp
+namespace GitHubApp.Stub
 {
     public class GitHubClientStub : GitHubClient
     {

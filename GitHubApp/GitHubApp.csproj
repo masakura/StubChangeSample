@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
     <Compile Include="GitHubClient.cs" />
-    <Compile Include="GitHubClientStub.cs" />
     <Compile Include="GitHubForm.cs">
       <SubType>Form</SubType>
     </Compile>

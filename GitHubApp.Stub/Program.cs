@@ -10,6 +10,8 @@ namespace GitHubApp.Stub
         [STAThread]
         private static void Main()
         {
+            GitHubClient.Current = new GitHubClientStub();
+
             Bootstrap.Run();
         }
     }
