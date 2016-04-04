@@ -8,16 +8,14 @@ namespace GitHubApp
     {
         public virtual async Task<object> GetGitHubRepositories()
         {
-            object repositories;
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("User-Agent", "My App");
                 var response = await client.GetAsync("https://api.github.com/repositories");
 
                 var text = await response.Content.ReadAsStringAsync();
-                repositories = JsonConvert.DeserializeObject(text);
+                return JsonConvert.DeserializeObject(text);
             }
-            return repositories;
         }
     }
 }

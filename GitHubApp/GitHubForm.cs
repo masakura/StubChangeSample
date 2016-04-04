@@ -19,9 +19,7 @@ namespace GitHubApp
 
         private async void loadButton_Click(object sender, EventArgs e)
         {
-            object repositories;
-
-            repositories = await GitHubClient.GetGitHubRepositories();
+            var repositories = await GitHubClient.GetGitHubRepositories();
 
             repositoriesDataGrid.DataSource = repositories;
         }
