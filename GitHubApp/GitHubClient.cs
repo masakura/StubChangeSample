@@ -6,7 +6,7 @@ namespace GitHubApp
 {
     public class GitHubClient
     {
-        public async Task<object> GetGitHubRepositories()
+        public virtual async Task<object> GetGitHubRepositories()
         {
             object repositories;
             using (var client = new HttpClient())

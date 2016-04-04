@@ -7,10 +7,12 @@ namespace GitHubApp
     {
         public GitHubForm()
         {
+            GitHubClient = new GitHubClient();
+            // GitHubClient = new GitHubClientStub();
+
             InitializeComponent();
 
             repositoriesDataGrid.AutoGenerateColumns = false;
-            GitHubClient = new GitHubClient();
         }
 
         public GitHubClient GitHubClient { get; }
@@ -20,16 +22,6 @@ namespace GitHubApp
             object repositories;
 
             repositories = await GitHubClient.GetGitHubRepositories();
-
-            /*
-                var repositories = new[]
-                {
-                    new {name = "repo1", full_name = "masakura/repo1", description = "description repo1"},
-                    new {name = "repo2", full_name = "a/longlongreponame", description = "description repo2"},
-                    new {name = "repo3", full_name = "masakura/repo3", description = "description repo3"},
-                    new {name = "repo4", full_name = "masakura/repo4", description = "long long description..."}
-                };
-            */
 
             repositoriesDataGrid.DataSource = repositories;
         }
