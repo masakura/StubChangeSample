@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GitHubClient.cs" />
     <Compile Include="GitHubForm.cs">
       <SubType>Form</SubType>
     </Compile>
