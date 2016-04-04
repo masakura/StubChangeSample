@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GitHubApp
+namespace GitHubApp.Stub
 {
     internal static class Program
     {
