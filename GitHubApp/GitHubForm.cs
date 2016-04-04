@@ -7,8 +7,7 @@ namespace GitHubApp
     {
         public GitHubForm()
         {
-            GitHubClient = new GitHubClient();
-            // GitHubClient = new GitHubClientStub();
+            GitHubClient = GitHubClient.Current;
 
             InitializeComponent();
 
